@@ -9,3 +9,6 @@ TEST_CASE( "Entradas inválidas - tabuleiros inválidos", "[rainhas]" ) {
 
 }
 
+TEST_CASE( "Entradas válida - mas não necessariamente correta", "[rainhas]" ) {
+    REQUIRE( problema_8_rainhas("01000000,00001000,00001000,10000000,00000001,00000100,00010000,00001000") == 1 ); //entrada com todas as rainhas, uma por linha
+}
