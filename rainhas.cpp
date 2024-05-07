@@ -18,11 +18,11 @@ bool verifica_tabuleiro(std::string tabul) {
         juri = false;
     }
     return juri;
-}
+};
 
 
 int problema_8_rainhas(std::string tabuleiro) {
     if (verifica_tabuleiro(tabuleiro) == false) {
         return -1;
     }
-}
+};
