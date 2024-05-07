@@ -10,7 +10,7 @@ bool verifica_tabuleiro(std::string tabul) {
         juri = false;
     }
     for (int i = 0; i < tam; i += 1) {
-       if (tabul[i] == 1) {
+       if (tabul[i] == '1') {
         contador += 1;
        }
     }
