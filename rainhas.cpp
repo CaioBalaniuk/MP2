@@ -22,7 +22,9 @@ bool verifica_tabuleiro(std::string tabul) {
 
 
 int problema_8_rainhas(std::string tabuleiro) {
-    if (verifica_tabuleiro(tabuleiro) == false) {
+    if (verifica_tabuleiro(tabuleiro) == true) {
+        return 1;
+    } else {
         return -1;
     }
 };
