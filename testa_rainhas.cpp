@@ -3,6 +3,7 @@
 #include "rainhas.hpp"
 
 TEST_CASE( "Entradas inválidas - tabuleiros inválidos", "[rainhas]" ) {
-    REQUIRE( problema_8_rainhas("00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000") == -1 );
+    REQUIRE( problema_8_rainhas("00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000") == -1 ); //entrada sem rainha
+
 }
 
