@@ -9,13 +9,15 @@ bool verifica_tabuleiro(std::string tabul) {
     if (tam != 71) {
         juri = false;
     }
-    for (int i = 0; i < tam; i += 1) {
-       if (tabul[i] == '1') {
-        contador += 1;
-       }
-    }
-    if (contador != 8) {
-        juri = false;
+    for (int u = 0; u < tam; u += 1) {
+        if (tabul[u] == ',' && contador != 1) {
+            juri = false;
+            break;
+        } else if (tabul[u] == ',' && contador == 1){
+            contador = 0;
+        } else if (tabul[u] == '1'){
+            contador += 1;
+        }
     }
     return juri;
 };
