@@ -3,20 +3,20 @@
 #include "rainhas.hpp"
 
 TEST_CASE( "Entradas inválidas - tabuleiros inválidos", "[rainhas]" ) {
-    REQUIRE( problema_8_rainhas("00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000") == -1 ); //entrada sem rainha
-    REQUIRE( problema_8_rainhas("00000000,00000000,00000000,00000000,00000000,00000000,00000000,0000000") == -1 ); //entrada com uma casa a menos
-    REQUIRE( problema_8_rainhas("01000000,00000100,00100000,00001000,00000000,00010000,00001000,00100000") == -1 ); //entrada com menos de 8 rainhas
-    REQUIRE( problema_8_rainhas("01000000,00000100,00100000,00001000,00010100,00010000,00001000,00100000") == -1 ); //entrada com mais de 8 rainhas
-    REQUIRE( problema_8_rainhas("00000000,10000100,00100000,00001000,00010000,00010000,00001000,00100000") == -1 ); //entrada com 8 rainhas, mas 2 na mesma linha
-    REQUIRE( problema_8_rainhas("00000000,10000000,00100000,00000000,00010000,00011100,00001000,00100000") == -1 ); //entrada com 8 rainhas, mas 3 na mesma linha
-    REQUIRE( problema_8_rainhas("01000000,00001000,00010000,000010000,00100000,00010000,00001000,00010000") == -1 ); //entrada com uma casa a mais
-    REQUIRE( problema_8_rainhas("0001000,01000000,00010000,000100000,00100000,00100000,00000100,00100000") == -1 ); //entrada com uma das linhas tendo 7 casas, e outra 9
+    REQUIRE( problema_8_rainhas("teste_1.txt") == -1 ); //entrada sem rainha
+    REQUIRE( problema_8_rainhas("teste_2.txt") == -1 ); //entrada com uma casa a menos
+    REQUIRE( problema_8_rainhas("teste_3.txt") == -1 ); //entrada com menos de 8 rainhas
+    REQUIRE( problema_8_rainhas("teste_5.txt") == -1 ); //entrada com mais de 8 rainhas
+    REQUIRE( problema_8_rainhas("teste_6.txt") == -1 ); //entrada com 8 rainhas, mas 2 na mesma linha
+    REQUIRE( problema_8_rainhas("teste_7.txt") == -1 ); //entrada com 8 rainhas, mas 3 na mesma linha
+    REQUIRE( problema_8_rainhas("teste_8.txt") == -1 ); //entrada com uma casa a mais
+    REQUIRE( problema_8_rainhas("teste_9.txt") == -1 ); //entrada com uma das linhas tendo 7 casas, e outra 9
 }
 
 TEST_CASE( "Entradas válida - mas não necessariamente correta", "[rainhas]" ) {
-    REQUIRE( problema_8_rainhas("01000000,00001000,00001000,10000000,00000001,00000100,00010000,00001000") == 1 ); //entrada com todas as rainhas, uma por linha
+    REQUIRE( problema_8_rainhas("teste_4.txt") == 1 ); //entrada com todas as rainhas, uma por linha
 }
 
 TEST_CASE( "Entradas válidas - mas não é resposta pro problema das 8 rainhas.", "[rainhas]" ) {
-    REQUIRE( problema_8_rainhas("01000000,01000000,00001000,10000000,00000001,00000100,00010000,00000010") == 0 ); //
+    REQUIRE( problema_8_rainhas("teste_10") == 0 ); //
 }

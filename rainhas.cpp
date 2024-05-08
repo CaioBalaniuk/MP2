@@ -2,6 +2,26 @@
 #include <iostream>
 #include <string>
 
+std::string le_arquivo(std::string& nomeArquivo) {
+    std::string resp = "";
+    std::string respf = "";
+    std::ifstream arquivo(nomeArquivo);
+    if (arquivo.is_open()) {
+        std::string linha;
+        while (std::getline(arquivo, linha)) {
+            resp += linha;
+            resp += ',';
+        }
+        for (int i = 0; i < (resp.length()-1); i +=1) {
+            respf += resp[i];
+        }
+        arquivo.close();
+    } else {
+        std::cout<<"Erro ao abrir arquivo."<<std::endl;
+    }
+    return respf;
+}
+
 bool verifica_tabuleiro(std::string tabul) {
     bool juri = true;
     int contador = 0;
@@ -28,7 +48,8 @@ bool verifica_tabuleiro(std::string tabul) {
 };
 
 
-int problema_8_rainhas(std::string tabuleiro) {
+int problema_8_rainhas(std::string nomeArquivo) {
+    std::string tabuleiro = le_arquivo(nomeArquivo);
     if (verifica_tabuleiro(tabuleiro) == true) {
         return 1;
     } else {
