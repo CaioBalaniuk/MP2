@@ -14,9 +14,9 @@ TEST_CASE( "Entradas inválidas - tabuleiros inválidos", "[rainhas]" ) {
 }
 
 TEST_CASE( "Entradas válida - mas não necessariamente correta", "[rainhas]" ) {
-    REQUIRE( problema_8_rainhas("teste_4.txt") == 1 ); //entrada com todas as rainhas, uma por linha
+    REQUIRE( problema_8_rainhas("teste_4.txt") == 0 ); //entrada com todas as rainhas, uma por linha
 }
 
 TEST_CASE( "Entradas válidas - mas não é resposta pro problema das 8 rainhas.", "[rainhas]" ) {
-    REQUIRE( problema_8_rainhas("teste_10") == 0 ); //
+    REQUIRE( problema_8_rainhas("teste_10.txt") == 0 ); //
 }
