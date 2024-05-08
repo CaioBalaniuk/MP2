@@ -18,5 +18,7 @@ TEST_CASE( "Entradas válida - mas não necessariamente correta", "[rainhas]" ) {
 }
 
 TEST_CASE( "Entradas válidas - mas não é resposta pro problema das 8 rainhas.", "[rainhas]" ) {
-    REQUIRE( problema_8_rainhas("teste_10.txt") == 0 ); //
+    REQUIRE( problema_8_rainhas("teste_10.txt") == 0 ); //teste para duas rainhas na mesma coluna
+    REQUIRE( problema_8_rainhas("teste_11.txt") == 0 ); //teste para duas rainhas na mesma coluna
+
 }
