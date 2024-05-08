@@ -3,22 +3,6 @@
 #include <string>
 #include <vector>
 
-void imprimir(std::vector<std::vector<int>> a) {
-    for (std::vector<int> u : a) {
-        for (int u1 : u) {
-            std::cout<<u1;
-        }
-        std::cout<<std::endl;
-    }
-}
-
-void imprimir1(std::vector<int> b) {
-    for (int u2 : b) {
-        std::cout<<u2;
-    }
-    std::cout<<std::endl;
-}
-
 std::string le_arquivo(std::string& nomeArquivo) {
     std::string resp = "";
     std::string respf = "";
@@ -40,17 +24,23 @@ std::string le_arquivo(std::string& nomeArquivo) {
 }
 
 std::vector<std::vector<int>> matriz (std::string tab) {
-    std::vector<int> apoio = {};
+    std::vector<int> apoio;
     std::vector <std::vector<int>> resp;
-    for (int i = 0; i < tab.length(); i += 1) {
+    int b = tab.length();
+    for (int i = 0; i < b; i += 1) {
         if (tab[i] == ',') {
             resp.push_back(apoio);
             apoio = {};
+        } else if (i == b - 1) {
+            int a = tab[i] - '0';
+            apoio.push_back(a);
+            resp.push_back(apoio);
         } else {
             int a = tab[i] - '0';
             apoio.push_back(a);
         }
     }
+
     return resp;
 }
 
@@ -68,6 +58,7 @@ std::vector<std::vector<int>> matriz (std::string tab) {
             resp += std::to_string(coluna);
         }
     }
+
     return resp;
 }
 
@@ -104,14 +95,9 @@ int problema_8_rainhas(std::string nomeArquivo) {
         std::vector<std::vector<int>> b;
         b = matriz(tabuleiro);
         for (int i = 0; i < b.size(); ++i) {
-            //std::vector<int> ajuda = b[i];
             for (int i1 = 0; i1 < b[i].size(); ++i1) {
                 if (b[i][i1] == 1) {
                     if (verifica_coluna(b, i, i1) != "" ) {
-                        //ataques += std::to_string(i);
-                        //ataques += ',';
-                        //ataques += std::to_string(i1);
-                        //ataques += " ";
                         ataques += verifica_coluna(b, i, i1);
                         ataques += " ";
                     }
@@ -128,7 +114,3 @@ int problema_8_rainhas(std::string nomeArquivo) {
     }
 };
 
-/*int main() {
-    std::cout<<problema_8_rainhas("teste_10.txt");
-    return 0;
-}*/
