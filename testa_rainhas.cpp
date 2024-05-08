@@ -8,6 +8,7 @@ TEST_CASE( "Entradas inválidas - tabuleiros inválidos", "[rainhas]" ) {
     REQUIRE( problema_8_rainhas("01000000,00000100,00100000,00001000,00000000,00010000,00001000,00100000") == -1 ); //entrada com menos de 8 rainhas
     REQUIRE( problema_8_rainhas("01000000,00000100,00100000,00001000,00010100,00010000,00001000,00100000") == -1 ); //entrada com mais de 8 rainhas
     REQUIRE( problema_8_rainhas("00000000,10000100,00100000,00001000,00010000,00010000,00001000,00100000") == -1 ); //entrada com 8 rainhas, mas 2 na mesma linha
+    REQUIRE( problema_8_rainhas("00000000,10000000,00100000,00000000,00010000,00011100,00001000,00100000") == -1 ); //entrada com 8 rainhas, mas 3 na mesma linha
 }
 
 TEST_CASE( "Entradas válida - mas não necessariamente correta", "[rainhas]" ) {
