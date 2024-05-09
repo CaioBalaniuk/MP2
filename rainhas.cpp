@@ -58,7 +58,6 @@ std::vector<std::vector<int>> matriz (std::string tab) {
             resp += std::to_string(coluna);
         }
     }
-
     return resp;
 }
 
@@ -113,4 +112,3 @@ int problema_8_rainhas(std::string nomeArquivo) {
         return -1;
     }
 };
-
