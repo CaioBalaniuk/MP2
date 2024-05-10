@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-void ataques_txt(std::string ataq, std::string nome) {
+void ataques_txt(std::vector<std::string> ataq, std::string nome) {
     std::string aux = "ataques_";
     std::string aux1 = "";
     for (char q : nome) {
@@ -17,7 +17,10 @@ void ataques_txt(std::string ataq, std::string nome) {
     if (!arquivo.is_open()) {
         std::cout<<"Erro ao abrir arquivo"<<std::endl;
     }
-    arquivo<<ataq<<std::endl;
+    for (std::string k : ataq) {
+        arquivo<<k<<std::endl;
+    }
+
     arquivo.close();
 }
 
@@ -129,6 +132,11 @@ std::string verifica_linha(std::vector <std::vector<int>> matri, int linha, int 
             resp += std::to_string(linha);
             resp += ',';
             resp += std::to_string(u);
+            resp += " ";
+            resp += std::to_string(linha);
+            resp += ',';
+            resp += std::to_string(coluna);
+            resp += " ";
         }
     }
     return resp;
@@ -146,6 +154,11 @@ std::string verifica_linha(std::vector <std::vector<int>> matri, int linha, int 
             resp += std::to_string(u);
             resp += ',';
             resp += std::to_string(coluna);
+            resp += " ";
+            resp += std::to_string(linha);
+            resp += ',';
+            resp += std::to_string(coluna);
+            resp += " ";
         }
     }
     return resp;
@@ -184,7 +197,7 @@ bool verifica_tabuleiro(std::string tabul) {
 int problema_8_rainhas(std::string nomeArquivo) {
     std::string tabuleiro = le_arquivo(nomeArquivo);
     if (verifica_tabuleiro(tabuleiro) == true){
-        std::string ataques = "";
+        std::vector<std::string> ataques;
         std::vector<std::vector<int>> b;
         b = matriz(tabuleiro);
         int tam = b.size();
@@ -193,8 +206,7 @@ int problema_8_rainhas(std::string nomeArquivo) {
             for (int i1 = 0; i1 < tam1; ++i1) {
                 if (b[i][i1] == 1) {
                     if (verifica_coluna(b, i, i1) != "" ) {
-                        ataques += verifica_coluna(b, i, i1);
-                        ataques += " ";
+                        ataques.push_back(verifica_coluna(b, i, i1));
                     }
                 }
             }
@@ -204,8 +216,7 @@ int problema_8_rainhas(std::string nomeArquivo) {
             for (int i2 = 0; i2 < tam2; ++i2) {
                 if (b[n][i2] == 1) {
                     if (verifica_linha(b, n, i2) != "") {
-                        ataques += verifica_linha(b, n, i2);
-                        ataques += " ";
+                        ataques.push_back(verifica_linha(b, n, i2));
                     }
                 }
             }
@@ -214,13 +225,12 @@ int problema_8_rainhas(std::string nomeArquivo) {
             for (int y1 = 0; y1 < 8; ++y1) {
                 if (b[y][y1] == 1) {
                     if (verifica_diagonal(b, y, y1) != "") {
-                        ataques += verifica_diagonal(b, y, y1);
-                        ataques += " ";
+                        ataques.push_back(verifica_diagonal(b, y, y1));
                     }
                 }
             }
         }
-        if (ataques == "") {
+        if (ataques.empty()) {
             return 1;
         } else {
             ataques_txt(ataques, nomeArquivo);
