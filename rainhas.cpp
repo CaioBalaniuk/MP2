@@ -132,7 +132,6 @@ int problema_8_rainhas(std::string nomeArquivo) {
         if (ataques == "") {
             return 1;
         } else {
-            std::cout<<ataques;
             return 0;
         }
     } else {
