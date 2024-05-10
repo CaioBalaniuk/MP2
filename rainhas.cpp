@@ -44,6 +44,24 @@ std::vector<std::vector<int>> matriz (std::string tab) {
     return resp;
 }
 
+std::string verifica_linha(std::vector <std::vector<int>> matri, int linha, int coluna) {
+    std::string resp = "";
+    int tam = matri.size();
+    for (int i = 0; i < tam; ++i) {
+        if (i != coluna) {
+            matri[linha][i] += 1;
+        }
+    }
+    for (int u = 0; u < tam; ++u) {
+        if (matri[linha][u] > 1) {
+            resp += std::to_string(linha);
+            resp += ',';
+            resp += std::to_string(u);
+        }
+    }
+    return resp;
+}
+
  std::string verifica_coluna(std::vector <std::vector<int>> matri, int linha, int coluna) {
     std::string resp = "";
     for (int i = 0; i < matri.size(); ++i) {
@@ -104,12 +122,17 @@ int problema_8_rainhas(std::string nomeArquivo) {
                         ataques += verifica_coluna(b, i, i1);
                         ataques += " ";
                     }
+                    if (verifica_linha(b, i, i1) != "") {
+                        ataques += verifica_linha(b, i, i1);
+                        ataques += " ";
+                    }
                 }
             }
         }
         if (ataques == "") {
             return 1;
         } else {
+            std::cout<<ataques;
             return 0;
         }
     } else {
