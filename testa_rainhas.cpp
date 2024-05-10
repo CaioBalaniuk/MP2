@@ -7,8 +7,6 @@ TEST_CASE( "Entradas inválidas - tabuleiros inválidos", "[rainhas]" ) {
     REQUIRE( problema_8_rainhas("teste_2.txt") == -1 ); //entrada com uma casa a menos
     REQUIRE( problema_8_rainhas("teste_3.txt") == -1 ); //entrada com menos de 8 rainhas
     REQUIRE( problema_8_rainhas("teste_5.txt") == -1 ); //entrada com mais de 8 rainhas
-    REQUIRE( problema_8_rainhas("teste_6.txt") == -1 ); //entrada com 8 rainhas, mas 2 na mesma linha
-    REQUIRE( problema_8_rainhas("teste_7.txt") == -1 ); //entrada com 8 rainhas, mas 3 na mesma linha
     REQUIRE( problema_8_rainhas("teste_8.txt") == -1 ); //entrada com uma casa a mais
     REQUIRE( problema_8_rainhas("teste_9.txt") == -1 ); //entrada com uma das linhas tendo 7 casas, e outra 9
 }
@@ -23,4 +21,5 @@ TEST_CASE( "Entradas válidas - mas não é resposta pro problema das 8 rainhas.", 
     REQUIRE( problema_8_rainhas("teste_12.txt") == 0 ); //teste para duas rainhas na mesma coluna
     REQUIRE( problema_8_rainhas("teste_13.txt") == 0 ); //teste para duas rainhas na mesma coluna
     REQUIRE( problema_8_rainhas("teste_14.txt") == 0 ); //teste para duas rainhas na mesma coluna, em colunas diferentes
+    REQUIRE( problema_8_rainhas("teste_15.txt") == 0 ); // teste para duas rainhas na mesma linha
 }

@@ -70,18 +70,22 @@ bool verifica_tabuleiro(std::string tabul) {
         juri = false;
     }
     for (int u = 0; u < tam; u += 1) {
-        if ((tabul[u] == ',' && contador != 1) || (tabul[u] == ',' && contador1 != 8)) {
-            juri = false;
-            break;
-        } else if (tabul[u] == ',' && contador == 1){
-            contador = 0;
-            contador1 = 0;
-        } else if (tabul[u] == '1'){
+        if (tabul[u] == '1'){
             contador += 1;
             contador1 +=1;
-        } else if (tabul[u] == '0'){
+        }else if (tabul[u] == '0') {
             contador1 += 1;
         }
+        if (tabul[u] == ',' && contador1 != 8) {
+            juri = false;
+            break;
+        }
+         if (tabul[u] == ',' && contador1 == 8) {
+            contador1 = 0;
+        }
+    }
+    if (contador != 8) {
+        juri =false;
     }
     return juri;
 };
@@ -112,3 +116,4 @@ int problema_8_rainhas(std::string nomeArquivo) {
         return -1;
     }
 };
+
