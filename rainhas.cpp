@@ -3,13 +3,22 @@
 #include <string>
 #include <vector>
 
-void imprimir(std::vector<std::vector<int>> a) {
-    for (std::vector<int> u : a) {
-        for (int u1 : u) {
-            std::cout<<u1;
+void ataques_txt(std::string ataq, std::string nome) {
+    std::string aux = "ataques_";
+    std::string aux1 = "";
+    for (char q : nome) {
+        if (q >= '0' && q <= '9') {
+            aux1 += q;
         }
-        std::cout<<std::endl;
     }
+    aux += aux1;
+    aux += ".txt";
+    std::ofstream arquivo(aux);
+    if (!arquivo.is_open()) {
+        std::cout<<"Erro ao abrir arquivo"<<std::endl;
+    }
+    arquivo<<ataq<<std::endl;
+    arquivo.close();
 }
 
 std::string le_arquivo(std::string& nomeArquivo) {
@@ -211,14 +220,13 @@ int problema_8_rainhas(std::string nomeArquivo) {
                 }
             }
         }
-        std::cout<<ataques<<std::endl;
         if (ataques == "") {
             return 1;
         } else {
+            ataques_txt(ataques, nomeArquivo);
             return 0;
         }
     } else {
         return -1;
     }
 };
-
