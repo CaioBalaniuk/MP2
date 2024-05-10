@@ -115,15 +115,24 @@ int problema_8_rainhas(std::string nomeArquivo) {
         std::string ataques = "";
         std::vector<std::vector<int>> b;
         b = matriz(tabuleiro);
-        for (int i = 0; i < b.size(); ++i) {
-            for (int i1 = 0; i1 < b[i].size(); ++i1) {
+        int tam = b.size();
+        for (int i = 0; i < tam; ++i) {
+            int tam1 = b[i].size();
+            for (int i1 = 0; i1 < tam1; ++i1) {
                 if (b[i][i1] == 1) {
                     if (verifica_coluna(b, i, i1) != "" ) {
                         ataques += verifica_coluna(b, i, i1);
                         ataques += " ";
                     }
-                    if (verifica_linha(b, i, i1) != "") {
-                        ataques += verifica_linha(b, i, i1);
+                }
+            }
+        }
+        for (int n = 0; n < tam; ++n) {
+            int tam2 = b[n].size();
+            for (int i2 = 0; i2 < tam2; ++i2) {
+                if (b[n][i2] == 1) {
+                    if (verifica_linha(b, n, i2) != "") {
+                        ataques += verifica_linha(b, n, i2);
                         ataques += " ";
                     }
                 }
@@ -138,4 +147,3 @@ int problema_8_rainhas(std::string nomeArquivo) {
         return -1;
     }
 };
-

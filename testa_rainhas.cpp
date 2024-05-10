@@ -26,5 +26,6 @@ TEST_CASE( "Entradas válidas - mas não é resposta pro problema das 8 rainhas.", 
     REQUIRE( problema_8_rainhas("teste_17.txt") == 0 ); // teste para duas rainhas na mesma linha
     REQUIRE( problema_8_rainhas("teste_18.txt") == 0 ); // teste para duas rainhas na mesma linha e duas rainhas na mesma coluna
     REQUIRE( problema_8_rainhas("teste_19.txt") == 0 ); // teste para duas rainhas na mesma linha e duas rainhas na mesma coluna
+    REQUIRE( problema_8_rainhas("teste_20.txt") == 0 ); // teste para duas rainhas na mesma linha e duas rainhas na mesma coluna
 }
 
