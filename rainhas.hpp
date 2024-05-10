@@ -9,4 +9,5 @@ std::string le_arquivo(std::string& nomeArquivo);
 std::vector <std::vector<int>> matriz(std::string tab);
 std::string verifica_coluna(std::vector <std::vector<int>> matri, int linha, int coluna);
 std::string verifica_linha(std::vector <std::vector<int>> matri, int linha, int coluna);
+std::string verifica_diagonal(std::vector <std::vector<int>> mat, int li, int co);
 

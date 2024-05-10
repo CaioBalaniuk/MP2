@@ -3,6 +3,15 @@
 #include <string>
 #include <vector>
 
+void imprimir(std::vector<std::vector<int>> a) {
+    for (std::vector<int> u : a) {
+        for (int u1 : u) {
+            std::cout<<u1;
+        }
+        std::cout<<std::endl;
+    }
+}
+
 std::string le_arquivo(std::string& nomeArquivo) {
     std::string resp = "";
     std::string respf = "";
@@ -42,6 +51,60 @@ std::vector<std::vector<int>> matriz (std::string tab) {
     }
 
     return resp;
+}
+
+std::string verifica_diagonal(std::vector <std::vector<int>> mat, int li, int co) {
+    std::string re = "";
+    int ta = mat.size();
+    int soma = li + co;
+    int sub = li - co;
+    for (int m = 0; m < ta; ++m) {
+        if (m != li) {
+            int ta1 = mat[m].size();
+            for ( int m1 = 0; m1 < ta1; ++m1) {
+                if (m1 != co) {
+                    int soma1 = m1 + m;
+                    int sub1 = m - m1;
+                    if (m1 < co) {
+                        if (m < li) {
+                            if (sub == sub1) {
+                                mat[m][m1] += 1;
+                            }
+                        } else if (m > li) {
+                            if (soma == soma1) {
+                                mat[m][m1] += 1;
+                            }
+                        }
+                    } else {
+                        if (m < li) {
+                            if (soma == soma1) {
+                                mat[m][m1] += 1;
+                            }
+                        } else if (m > li) {
+                            if (sub == sub1) {
+                                mat[m][m1] += 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    for (int l = 0; l < ta; ++l) {
+        for (int l1 = 0; l1 < 8; ++l1) {
+            if (mat[l][l1] > 1) {
+                re += std::to_string(l);
+                re += ',';
+                re += std::to_string(l1);
+                re += " ";
+                re += std::to_string(li);
+                re += ',';
+                re += std::to_string(co);
+                re += " ";
+            }
+        }
+    }
+    return re;
 }
 
 std::string verifica_linha(std::vector <std::vector<int>> matri, int linha, int coluna) {
@@ -138,6 +201,17 @@ int problema_8_rainhas(std::string nomeArquivo) {
                 }
             }
         }
+        for (int y = 0; y < tam; ++y) {
+            for (int y1 = 0; y1 < 8; ++y1) {
+                if (b[y][y1] == 1) {
+                    if (verifica_diagonal(b, y, y1) != "") {
+                        ataques += verifica_diagonal(b, y, y1);
+                        ataques += " ";
+                    }
+                }
+            }
+        }
+        std::cout<<ataques<<std::endl;
         if (ataques == "") {
             return 1;
         } else {
@@ -147,3 +221,4 @@ int problema_8_rainhas(std::string nomeArquivo) {
         return -1;
     }
 };
+
